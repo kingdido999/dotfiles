@@ -1,0 +1,6 @@
+# dotfiles
+
+``` sh
+stow <package>
+```
+

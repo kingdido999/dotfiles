@@ -1,0 +1,24 @@
+# This is Git's per-user configuration file.
+[user]
+	email = info@desmonding.me
+	username = kingdido999
+	name = Pengcheng Ding
+[push]
+	default = simple
+[core]
+	editor = nvim
+	precomposeUnicode = true
+	pager = delta
+[credential]
+	helper = cache --timeout=86400
+[delta]
+  syntax-theme = Solarized (light)
+  side-by-side = true
+  line-numbers = true
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
