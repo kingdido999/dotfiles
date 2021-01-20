@@ -31,7 +31,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/wiki")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -59,5 +59,12 @@
 (setq racer-rust-src-path "~/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/library")
 
 ;; org-roam
-(setq org-roam-directory "~/org-roam")
+(setq org-roam-directory "~/wiki")
 (add-hook 'after-init-hook 'org-roam-mode)
+
+;; deft
+(setq deft-extensions '("org"))
+(setq deft-directory "~/wiki")
+
+;; tramp
+(setq tramp-default-method "ssh")
