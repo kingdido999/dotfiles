@@ -37,6 +37,8 @@ set PATH /usr/local/bin $PATH
 set PATH ~/.emacs.d/bin $PATH
 set PATH ~/.cargo/bin $PATH
 
+fenv source ~/.profile
+
 ## FZF
 
 ### Solarized Light color scheme

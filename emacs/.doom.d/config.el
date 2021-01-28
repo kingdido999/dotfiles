@@ -68,3 +68,6 @@
 
 ;; tramp
 (setq tramp-default-method "ssh")
+
+;; vterm
+(setq vterm-shell "/usr/local/bin/fish")
