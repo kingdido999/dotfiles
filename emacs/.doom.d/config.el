@@ -71,3 +71,11 @@
 
 ;; vterm
 (setq vterm-shell "/usr/local/bin/fish")
+
+;; Set PATH
+(let ((path (shell-command-to-string ". ~/.bash_profile; echo -n $PATH")))
+  (setenv "PATH" path)
+  (setq exec-path
+        (append
+         (split-string-and-unquote path ":")
+         exec-path)))
