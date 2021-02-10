@@ -55,9 +55,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Rust
-(setq racer-rust-src-path "~/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/library")
-
 ;; org-roam
 (setq org-roam-directory "~/wiki")
 (add-hook 'after-init-hook 'org-roam-mode)
@@ -70,12 +67,4 @@
 (setq tramp-default-method "ssh")
 
 ;; vterm
-(setq vterm-shell "/usr/local/bin/fish")
-
-;; Set PATH
-(let ((path (shell-command-to-string ". ~/.bash_profile; echo -n $PATH")))
-  (setenv "PATH" path)
-  (setq exec-path
-        (append
-         (split-string-and-unquote path ":")
-         exec-path)))
+(setq vterm-shell "/bin/zsh")
