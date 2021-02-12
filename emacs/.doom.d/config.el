@@ -35,7 +35,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type nil)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -68,6 +68,12 @@
 
 ;; vterm
 (setq vterm-shell "/bin/zsh")
+;;
+;; treemacs
+(setq treemacs-width 50)
+
+;; evil-easymotion
+(evilem-default-keybindings "SPC")
 
 ;; Fullscreen when startup
 (add-to-list 'initial-frame-alist '(fullscreen . fullboth))
