@@ -112,3 +112,7 @@ alias tn="tmux new -s $1"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5f87ff"
 ZSH_AUTOSUGGEST_USE_ASYNC=T
+
+export ALTERNATE_EDITOR=""
+export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
+export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
