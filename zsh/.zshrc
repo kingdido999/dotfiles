@@ -104,15 +104,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias c="clear"
-alias cat="bat"
 alias t="tmux"
 alias ta="tmux attach-session -d -t $1"
 alias tk="tmux kill-session -t $1"
 alias tl="tmux ls"
 alias tn="tmux new -s $1"
-
-source $HOME/.bash_profile
-source $HOME/.bashrc
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5f87ff"
 ZSH_AUTOSUGGEST_USE_ASYNC=T
