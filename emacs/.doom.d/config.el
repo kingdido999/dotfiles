@@ -35,7 +35,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type nil)
+(setq display-line-numbers-type t)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -55,6 +55,11 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+
+;; org-todo
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "INPROGRESS(i)" "REVIEW(r)" "|" "DONE(d)" "NEVER(n)")))
+
 ;; org-roam
 (setq org-roam-directory "~/wiki")
 (add-hook 'after-init-hook 'org-roam-mode)
@@ -70,10 +75,18 @@
 (setq vterm-shell "/bin/zsh")
 ;;
 ;; treemacs
-(setq treemacs-width 50)
+(setq treemacs-width 60)
 
 ;; evil-easymotion
 (evilem-default-keybindings "SPC")
 
+;; multiple-cursors
+(global-set-key (kbd "C-j") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-k") 'mc/mark-previous-like-this)
+
 ;; Fullscreen when startup
 (add-to-list 'initial-frame-alist '(fullscreen . fullboth))
+
+;;Exit insert mode by pressing j and then j quickly
+(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+(key-chord-mode 1)

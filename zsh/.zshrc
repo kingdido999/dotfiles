@@ -112,3 +112,7 @@ alias tn="tmux new -s $1"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5f87ff"
 ZSH_AUTOSUGGEST_USE_ASYNC=T
+
+if [ -f ~/.bash_profile ]; then
+    . ~/.bash_profile;
+fi
