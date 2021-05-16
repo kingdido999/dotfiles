@@ -37,7 +37,7 @@ set PATH /usr/local/bin $PATH
 set PATH ~/.emacs.d/bin $PATH
 set PATH ~/.cargo/bin $PATH
 
-fenv source ~/.bash_profile
+bass source ~/.bash_profile
 
 ## FZF
 
