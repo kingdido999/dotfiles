@@ -72,7 +72,7 @@
 (setq tramp-default-method "ssh")
 
 ;; vterm
-(setq vterm-shell "/bin/zsh")
+(setq vterm-shell "/usr/local/bin/fish")
 ;;
 ;; treemacs
 (setq treemacs-width 60)
