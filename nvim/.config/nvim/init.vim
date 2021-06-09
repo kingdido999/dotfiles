@@ -36,10 +36,11 @@ nmap <silent> <Space>c :Commands<cr>
 nmap <silent> <Space>a :BLine<cr>
 nmap <silent> <Space>s :Lines<cr>
 nmap <silent> <Space>r :Rg<cr>
+nmap <silent> <Space>f :GFiles<cr>
 nmap <silent> <Space>g :Files<cr>
 nmap <silent> <Space>w :Wiki<cr>
 " GFiles fallback to Files
-nnoremap <expr> <Space>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
+" nnoremap <expr> <Space>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
