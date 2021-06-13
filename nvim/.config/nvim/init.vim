@@ -188,6 +188,9 @@ syntax enable
 set background=light
 colorscheme solarized
 
+" Use bash shell to ensure fast git operations
+set shell=/bin/bash
+
 " Show relative line numbers
 set relativenumber
 
