@@ -28,11 +28,46 @@ let g:lightline = {
 
 Plug 'edkolev/tmuxline.vim'
 
+" Neovim 0.5 Experimental
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+
+" " Find files using Telescope command-line sugar.
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using lua functions
+" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '-u', '-u' } }<cr>
+" nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+" nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+" nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" lua << EOF
+" require('telescope').setup{
+"   defaults = {
+"     vimgrep_arguments = {
+"       'rg',
+"       '--color=never',
+"       '--no-heading',
+"       '--with-filename',
+"       '--line-number',
+"       '--column',
+"       '--smart-case',
+"       '-u'
+"     },
+"   }
+" }
+" EOF
+
 " Fuzzy find files
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 nmap <silent> <Space>b :Buffers<cr>
-nmap <silent> <Space>c :Commands<cr>
+nmap <silent> <Space>c :Commits<cr>
 nmap <silent> <Space>a :BLine<cr>
 nmap <silent> <Space>s :Lines<cr>
 nmap <silent> <Space>r :Rg<cr>
@@ -56,9 +91,6 @@ command! -bang -nargs=* Wiki
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-" Insert or delete brackets, parens, quotes in pair
-" Plug 'jiangmiao/auto-pairs'
 
 " Change surroundings in pair
 Plug 'tpope/vim-surround'
@@ -155,6 +187,9 @@ call plug#end()
 syntax enable
 set background=light
 colorscheme solarized
+
+" Show relative line numbers
+set relativenumber
 
 " Sets how many lines of history VIM has to remember
 set history=500
