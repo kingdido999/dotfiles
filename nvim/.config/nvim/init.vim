@@ -83,7 +83,7 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=* Wiki
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '
-  \   . (len(<q-args>) > 0 ? <q-args> : '""') . ' ~/wiki/*.wiki', 1, fzf#vim#with_preview(), <bang>0)
+  \   . (len(<q-args>) > 0 ? <q-args> : '""') . ' ~/wiki/*', 1, fzf#vim#with_preview(), <bang>0)
 
 " Remove fzf status line
 autocmd! FileType fzf
@@ -101,6 +101,15 @@ Plug 'wincent/ferret'
 
 " Git
 Plug 'tpope/vim-fugitive'
+nmap <silent> <Space>gg :Git<cr>
+nmap <silent> <Space>ga :Git add .<cr>
+nmap <silent> <Space>gb :Git branch<cr>
+nmap <silent> <Space>gc :Git commit<cr>
+nmap <silent> <Space>gd :Git diff<cr>
+nmap <silent> <Space>gf :Git pull<cr>
+nmap <silent> <Space>gp :Git push<cr>
+" Use tab to toggle inline diff
+autocmd FileType fugitive nmap <buffer> <tab> =
 
 " Editor config
 Plug 'editorconfig/editorconfig-vim'
@@ -165,16 +174,12 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 set nocompatible
 let g:vimwiki_list = [{
   \ 'path': '~/wiki/',
-  \ 'path_html': '~/wiki_html',
-  \ 'css_file': '~/wiki/_templates/main.css',
-  \ 'template_path': '~/wiki/_templates',
-  \ 'template_default': 'default',
-  \ 'template_ext': '.html' }]
+  \ 'syntax': 'markdown',
+  \ 'ext': '.md' }]
 
+let g:vimwiki_global_ext = 0
 let g:auto_diary_index = 1
 let g:vimwiki_table_mappings = 0
-
-autocmd FileType vimwiki autocmd BufWritePost <buffer> silent Vimwiki2HTML
 
 call plug#end()
 
