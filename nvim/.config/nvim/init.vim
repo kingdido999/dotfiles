@@ -29,66 +29,17 @@ let g:lightline = {
 Plug 'edkolev/tmuxline.vim'
 
 " Neovim 0.5 Experimental
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-lua/popup.nvim'
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
-
-" " Find files using Telescope command-line sugar.
-" nnoremap <leader>ff <cmd>Telescope find_files<cr>
-" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-" nnoremap <leader>fb <cmd>Telescope buffers<cr>
-" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Using lua functions
-" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '-u', '-u' } }<cr>
-" nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-" nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-" nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
-" lua << EOF
-" require('telescope').setup{
-"   defaults = {
-"     vimgrep_arguments = {
-"       'rg',
-"       '--color=never',
-"       '--no-heading',
-"       '--with-filename',
-"       '--line-number',
-"       '--column',
-"       '--smart-case',
-"       '-u'
-"     },
-"   }
-" }
-" EOF
-
-" Fuzzy find files
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-nmap <silent> <Space>b :Buffers<cr>
-nmap <silent> <Space>c :Commits<cr>
-nmap <silent> <Space>s :Lines<cr>
-nmap <silent> <Space>r :Rg<cr>
-nmap <silent> <Space>f :GFiles<cr>
-nmap <silent> <Space>w :Wiki<cr>
-" GFiles fallback to Files
-nnoremap <expr> <Space>f (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
-
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
-
-command! -bang -nargs=* Wiki
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '
-  \   . (len(<q-args>) > 0 ? <q-args> : '""') . ' ~/wiki/*', 1, fzf#vim#with_preview(), <bang>0)
-
-" Remove fzf status line
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files{ find_command = { 'rg', '--ignore', '--hidden', '--files' } }<cr>
+nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' } }<cr>
+nnoremap <leader>w <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }, cwd = '~/wiki' }<cr>
+nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " Change surroundings in pair
 Plug 'tpope/vim-surround'
@@ -101,13 +52,7 @@ Plug 'wincent/ferret'
 
 " Git
 Plug 'tpope/vim-fugitive'
-nmap <silent> <Space>gg :Git<cr>
-nmap <silent> <Space>ga :Git add .<cr>
-nmap <silent> <Space>gb :Git branch<cr>
-nmap <silent> <Space>gc :Git commit<cr>
-nmap <silent> <Space>gd :Git diff<cr>
-nmap <silent> <Space>gf :Git pull<cr>
-nmap <silent> <Space>gp :Git push<cr>
+nmap <silent> <leader>g :Git<cr>
 " Use tab to toggle inline diff
 autocmd FileType fugitive nmap <buffer> <tab> =
 
@@ -117,7 +62,7 @@ Plug 'editorconfig/editorconfig-vim'
 " Language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-prettier', 'coc-explorer', 'coc-emmet', 'coc-json', 'coc-pairs', 'coc-snippets']
-nmap <space>e :CocCommand explorer --position=floating<CR>
+nmap <leader>e :CocCommand explorer --position=floating<CR>
 
 " https://github.com/weirongxu/coc-explorer/wiki/Highlight
 autocmd ColorScheme *
@@ -167,9 +112,6 @@ set conceallevel=2
 let g:rustfmt_autosave = 1
 filetype plugin on
 
-" Snippets
-" Plug 'honza/vim-snippets'
-
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 set nocompatible
 let g:vimwiki_list = [{
@@ -179,7 +121,9 @@ let g:vimwiki_list = [{
 
 let g:vimwiki_global_ext = 0
 let g:auto_diary_index = 1
-let g:vimwiki_table_mappings = 0
+map <leader>t <Plug>VimwikiToggleListItem
+
+Plug 'tools-life/taskwiki'
 
 call plug#end()
 
@@ -190,6 +134,9 @@ call plug#end()
 syntax enable
 set background=light
 colorscheme solarized
+
+" Use space as leader key
+map <space> <leader>
 
 " Use bash shell to ensure fast git operations
 set shell=/bin/bash
@@ -300,8 +247,11 @@ nnoremap <C-l> <C-w>l
 nnoremap H gT
 nnoremap L gt
 
-" Make jj do esc
+" Make jj do esc in insert mode
 inoremap jj <Esc>
+
+" Make Ctrl-C do esc
+map <C-c> <Esc>
 
 " Disable arrow keys
 noremap <Up> <Nop>

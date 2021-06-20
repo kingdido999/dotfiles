@@ -1,1 +1,4 @@
-/Users/Desmond/dotfiles/nvim/coc-settings.json
+{
+  "explorer.file.showHiddenFiles": true,
+  "java.jdt.ls.vmargs": "-javaagent:/Users/pengcheng.ding/.m2/repository/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar -Xbootclasspath/a:/Users/pengcheng.ding/.m2/repository/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar"
+}
