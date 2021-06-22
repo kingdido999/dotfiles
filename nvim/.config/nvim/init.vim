@@ -35,11 +35,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Using lua functions
-nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files{ find_command = { 'rg', '--ignore', '--hidden', '--files' } }<cr>
-nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' } }<cr>
-nnoremap <leader>w <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }, cwd = '~/wiki' }<cr>
-nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <space>f <cmd>lua require('telescope.builtin').find_files{ find_command = { 'rg', '--ignore', '--hidden', '--files' } }<cr>
+nnoremap <space>r <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' } }<cr>
+nnoremap <space>w <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }, cwd = '~/wiki' }<cr>
+nnoremap <space>b <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <space>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " Change surroundings in pair
 Plug 'tpope/vim-surround'
@@ -52,7 +52,7 @@ Plug 'wincent/ferret'
 
 " Git
 Plug 'tpope/vim-fugitive'
-nmap <silent> <leader>g :Git<cr>
+nmap <silent> <space>g :Git<cr>
 " Use tab to toggle inline diff
 autocmd FileType fugitive nmap <buffer> <tab> =
 
@@ -121,9 +121,8 @@ let g:vimwiki_list = [{
 
 let g:vimwiki_global_ext = 0
 let g:auto_diary_index = 1
-map <leader>t <Plug>VimwikiToggleListItem
-
-Plug 'tools-life/taskwiki'
+nmap <leader>t <Plug>VimwikiToggleListItem
+vmap <leader>t <Plug>VimwikiToggleListItem
 
 call plug#end()
 
@@ -134,9 +133,6 @@ call plug#end()
 syntax enable
 set background=light
 colorscheme solarized
-
-" Use space as leader key
-map <space> <leader>
 
 " Use bash shell to ensure fast git operations
 set shell=/bin/bash
@@ -220,9 +216,6 @@ set diffopt+=vertical
 
 " Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Tab width for individual languages
-autocmd Filetype solidity setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
