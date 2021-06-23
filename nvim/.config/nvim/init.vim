@@ -33,11 +33,13 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'ggandor/lightspeed.nvim'
 
 " Using lua functions
 nnoremap <space>f <cmd>lua require('telescope.builtin').find_files{ find_command = { 'rg', '--ignore', '--hidden', '--files' } }<cr>
 nnoremap <space>r <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' } }<cr>
-nnoremap <space>w <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }, cwd = '~/wiki' }<cr>
+nnoremap <space>wf <cmd>lua require('telescope.builtin').find_files{ find_command = { 'rg', '--ignore', '--hidden', '--files' }, cwd = '~/wiki' }<cr>
+nnoremap <space>wr <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }, cwd = '~/wiki' }<cr>
 nnoremap <space>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <space>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
@@ -62,7 +64,7 @@ Plug 'editorconfig/editorconfig-vim'
 " Language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-prettier', 'coc-explorer', 'coc-emmet', 'coc-json', 'coc-pairs', 'coc-snippets']
-nmap <leader>e :CocCommand explorer --position=floating<CR>
+nmap <space>e :CocCommand explorer --position=floating<CR>
 
 " https://github.com/weirongxu/coc-explorer/wiki/Highlight
 autocmd ColorScheme *
@@ -121,8 +123,11 @@ let g:vimwiki_list = [{
 
 let g:vimwiki_global_ext = 0
 let g:auto_diary_index = 1
-nmap <leader>t <Plug>VimwikiToggleListItem
-vmap <leader>t <Plug>VimwikiToggleListItem
+nmap <space>t <Plug>VimwikiToggleListItem
+vmap <space>t <Plug>VimwikiToggleListItem
+
+" Continuously updated session files
+Plug 'tpope/vim-obsession'
 
 call plug#end()
 
@@ -277,6 +282,10 @@ endif
 
 " Replace
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+" Insert date
+nnoremap <leader>d "=strftime("%a, %m/%d/%y")<CR>P
+inoremap <leader>d <C-R>=strftime("%a, %m/%d/%y")<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
