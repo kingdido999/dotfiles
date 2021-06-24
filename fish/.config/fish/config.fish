@@ -1,18 +1,13 @@
 ## Alias
-
-alias cat="bat"
-
 alias c="clear"
-
+alias cat="bat"
 alias fe="nvim ~/.config/fish/config.fish"
 alias fr="source ~/.config/fish/config.fish"
-
 alias t="tmux"
 alias ta="tmux attach-session -d -t $1"
 alias tk="tmux kill-session -t $1"
 alias tl="tmux ls"
 alias tn="tmux new -s $1"
-
 alias ga="git add $1"
 alias gaa="git add -A"
 alias gb="git branch"
@@ -26,16 +21,11 @@ alias gd="git diff"
 alias gl="git log"
 alias gp="git push"
 alias gpl="git pull"
-alias grc="git rebase --continue"
 alias grh="git reset --hard"
 alias grim="git rebase -i master"
 alias gs="git status"
-alias gsl="git stash list"
-alias gsp="git stash push -m $1"
 
 set PATH /usr/local/bin $PATH
-set PATH ~/.emacs.d/bin $PATH
-set PATH ~/.cargo/bin $PATH
 
 bass source ~/.bash_profile
 
