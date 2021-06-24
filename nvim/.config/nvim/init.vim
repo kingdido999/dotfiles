@@ -123,6 +123,7 @@ let g:vimwiki_list = [{
 
 let g:vimwiki_global_ext = 0
 let g:auto_diary_index = 1
+
 nmap <space>t <Plug>VimwikiToggleListItem
 vmap <space>t <Plug>VimwikiToggleListItem
 
