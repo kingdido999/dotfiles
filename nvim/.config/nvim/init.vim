@@ -54,7 +54,7 @@ Plug 'wincent/ferret'
 
 " Git
 Plug 'tpope/vim-fugitive'
-nmap <silent> <space>g :Git<cr>
+nnoremap <silent> <space>g :Git<cr>
 " Use tab to toggle inline diff
 autocmd FileType fugitive nmap <buffer> <tab> =
 
@@ -64,7 +64,7 @@ Plug 'editorconfig/editorconfig-vim'
 " Language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-prettier', 'coc-explorer', 'coc-emmet', 'coc-json', 'coc-pairs', 'coc-snippets']
-nmap <space>e :CocCommand explorer --position=floating<CR>
+nnoremap <space>e :CocCommand explorer --position=floating<CR>
 
 " https://github.com/weirongxu/coc-explorer/wiki/Highlight
 autocmd ColorScheme *
@@ -124,8 +124,8 @@ let g:vimwiki_list = [{
 let g:vimwiki_global_ext = 0
 let g:auto_diary_index = 1
 
-nmap <space>t <Plug>VimwikiToggleListItem
-vmap <space>t <Plug>VimwikiToggleListItem
+nnoremap <leader>t <Plug>VimwikiToggleListItem
+vnoremap <leader>t <Plug>VimwikiToggleListItem
 
 " Continuously updated session files
 Plug 'tpope/vim-obsession'
@@ -269,7 +269,7 @@ map 0 ^
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " Find and replace the current word under cursor
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Clipboard overrides for system-clipboard integration and SSH-TMUX-Forwarding
 " copy the current text selection to the system clipboard
