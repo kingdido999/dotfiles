@@ -40,7 +40,7 @@ nnoremap <space>f <cmd>lua require('telescope.builtin').find_files{ find_command
 nnoremap <space>r <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' } }<cr>
 nnoremap <space>wf <cmd>lua require('telescope.builtin').find_files{ find_command = { 'rg', '--ignore', '--hidden', '--files' }, cwd = '~/wiki' }<cr>
 nnoremap <space>wr <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }, cwd = '~/wiki' }<cr>
-nnoremap <space>b <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <space>bb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <space>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " Change surroundings in pair
@@ -106,8 +106,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Navigate diagnostics
-nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-nmap <silent> g] <Plug>(coc-diagnostic-next)
+nmap <silent> gh <Plug>(coc-diagnostic-prev)
+nmap <silent> gl <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -129,7 +129,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>af  <Plug>(coc-fix-current)
 
 " Language support
 Plug 'sheerun/vim-polyglot'
@@ -147,8 +147,8 @@ let g:vimwiki_list = [{
 let g:vimwiki_global_ext = 0
 let g:auto_diary_index = 1
 
-nmap <leader>t <Plug>VimwikiToggleListItem
-vmap <leader>t <Plug>VimwikiToggleListItem
+nnoremap <leader>t <Plug>VimwikiToggleListItem
+vnoremap <leader>t <Plug>VimwikiToggleListItem
 
 " Continuously updated session files
 Plug 'tpope/vim-obsession'
@@ -262,6 +262,10 @@ autocmd FileType help wincmd L
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Key mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Switch back and forth buffers
+nnoremap <space>bh :bprevious<CR>
+nnoremap <space>bl :bnext<CR>
+
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
