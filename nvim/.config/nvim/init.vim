@@ -77,11 +77,23 @@ set hidden
 set nobackup
 set nowritebackup
 
+" Give more space for displaying messages.
+set cmdheight=2
+
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -96,6 +108,10 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+" Navigate diagnostics
+nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> g] <Plug>(coc-diagnostic-next)
+
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -107,6 +123,16 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Language support
 Plug 'sheerun/vim-polyglot'
@@ -124,11 +150,14 @@ let g:vimwiki_list = [{
 let g:vimwiki_global_ext = 0
 let g:auto_diary_index = 1
 
-nnoremap <leader>t <Plug>VimwikiToggleListItem
-vnoremap <leader>t <Plug>VimwikiToggleListItem
+nmap <leader>t <Plug>VimwikiToggleListItem
+vmap <leader>t <Plug>VimwikiToggleListItem
 
 " Continuously updated session files
 Plug 'tpope/vim-obsession'
+
+" Snippets
+Plug 'honza/vim-snippets'
 
 call plug#end()
 

@@ -1,4 +1,11 @@
 {
   "explorer.file.showHiddenFiles": true,
+  "explorer.keyMappings.global": {
+    "s": "open:vsplit"
+  },
+  "coc.preferences.formatOnSaveFiletypes": ["css", "typescript", "javascript", "html", "markdown"],
+  "snippets.extends": {
+    "typescript": ["javascript"]
+  },
   "java.jdt.ls.vmargs": "-javaagent:/Users/pengcheng.ding/.m2/repository/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar -Xbootclasspath/a:/Users/pengcheng.ding/.m2/repository/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar"
 }
