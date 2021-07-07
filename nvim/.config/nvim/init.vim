@@ -64,7 +64,7 @@ Plug 'editorconfig/editorconfig-vim'
 " Language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-prettier', 'coc-explorer', 'coc-emmet', 'coc-json', 'coc-pairs', 'coc-snippets']
-nnoremap <space>e :CocCommand explorer --position=floating<CR>
+nnoremap <space>e :CocCommand explorer --width 60<CR>
 
 " https://github.com/weirongxu/coc-explorer/wiki/Highlight
 autocmd ColorScheme *
@@ -76,9 +76,6 @@ set hidden
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
