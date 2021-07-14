@@ -142,7 +142,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Language support
-Plug 'sheerun/vim-polyglot'
 set conceallevel=2
 let g:rustfmt_autosave = 1
 filetype plugin on
