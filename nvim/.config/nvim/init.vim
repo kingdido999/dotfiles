@@ -179,8 +179,8 @@ colorscheme solarized
 " Use bash shell to ensure fast git operations
 set shell=/bin/bash
 
-" Show relative line numbers
-set relativenumber
+" Show line numbers
+set number
 
 " Sets how many lines of history VIM has to remember
 set history=500
