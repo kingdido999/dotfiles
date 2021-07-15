@@ -41,6 +41,19 @@ nnoremap <space>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 Plug 'ggandor/lightspeed.nvim'
 
+" Debugger
+Plug 'puremourning/vimspector'
+nmap <space>dc <Plug>VimspectorContinue
+nmap <space>ds <Plug>VimspectorStop
+nmap <space>dr <Plug>VimpectorRestart
+nmap <space>dp <Plug>VimspectorPause
+nmap <space>db <Plug>VimspectorToggleBreakpoint
+nmap <space>dj <Plug>VimspectorStepOver
+nmap <space>dl <Plug>VimspectorStepInto
+nmap <space>dh <Plug>VimspectorStepOut
+nmap <space>di <Plug>VimspectorBalloonEval
+xmap <space>di <Plug>VimspectorBalloonEval
+
 " Change surroundings in pair
 Plug 'tpope/vim-surround'
 
@@ -63,6 +76,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-prettier', 'coc-explorer', 'coc-emmet', 'coc-json', 'coc-pairs', 'coc-snippets', 'coc-lists']
 nnoremap <space>e :CocCommand explorer --width 60<CR>
+nmap <space>dd :CocCommand java.debug.vimspector.start<CR>
 
 " https://github.com/weirongxu/coc-explorer/wiki/Highlight
 autocmd ColorScheme *
