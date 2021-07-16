@@ -32,10 +32,10 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-nnoremap <space>f <cmd>lua require('telescope.builtin').find_files{ find_command = { 'rg', '--ignore', '--hidden', '--files' } }<cr>
-nnoremap <space>r <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' } }<cr>
+nnoremap <space>ff <cmd>lua require('telescope.builtin').find_files{ find_command = { 'rg', '--ignore', '--hidden', '--files' } }<cr>
+nnoremap <space>fg <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' } }<cr>
 nnoremap <space>wf <cmd>lua require('telescope.builtin').find_files{ find_command = { 'rg', '--ignore', '--hidden', '--files' }, cwd = '~/wiki' }<cr>
-nnoremap <space>wr <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }, cwd = '~/wiki' }<cr>
+nnoremap <space>wg <cmd>lua require('telescope.builtin').live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }, cwd = '~/wiki' }<cr>
 nnoremap <space>bb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <space>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
@@ -114,17 +114,17 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Navigate diagnostics
-nmap <silent> gh <Plug>(coc-diagnostic-prev)
-nmap <silent> gl <Plug>(coc-diagnostic-next)
+nmap <space>ck <Plug>(coc-diagnostic-prev)
+nmap <space>cj <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <space>cd <Plug>(coc-definition)
+nmap <space>ct <Plug>(coc-type-definition)
+nmap <space>ci <Plug>(coc-implementation)
+nmap <space>cr <Plug>(coc-references)
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Show documentation in preview window
+nnoremap <space>cp :call <SID>show_documentation()<CR>
 
 " Symbol renaming.
 nmap <space>an <Plug>(coc-rename)
@@ -140,14 +140,9 @@ nmap <space>ac  <Plug>(coc-codeaction)
 nmap <space>af  <Plug>(coc-fix-current)
 
 " Mappings for CoCList
-nnoremap <silent><nowait> <space>x  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <space>cx  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>co  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>fl  :<C-u>CocList lines<cr>
 
 " Language support
 set conceallevel=2
