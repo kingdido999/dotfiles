@@ -127,27 +127,27 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <space>an <Plug>(coc-rename)
 
 " Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Example: `<space>aap` for current paragraph
+xmap <space>a  <Plug>(coc-codeaction-selected)
+nmap <space>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <space>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>af  <Plug>(coc-fix-current)
+nmap <space>af  <Plug>(coc-fix-current)
 
 " Mappings for CoCList
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>x  :<C-u>CocList diagnostics<cr>
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<cr>
-" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Language support
 set conceallevel=2
@@ -176,6 +176,12 @@ Plug 'honza/vim-snippets'
 call plug#end()
 
 lua <<EOF
+require('telescope').setup{
+  defaults = {
+    layout_strategy = "vertical",
+  }
+}
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
