@@ -13,7 +13,7 @@ let g:lightline = {
   \ },
   \ }
 
-let g:coc_global_extensions = ['coc-prettier', 'coc-explorer', 'coc-emmet', 'coc-json', 'coc-pairs', 'coc-snippets', 'coc-lists']
+let g:coc_global_extensions = ['coc-prettier', 'coc-explorer', 'coc-emmet', 'coc-json', 'coc-pairs', 'coc-snippets', 'coc-lists', 'coc-git']
 
 let g:vimwiki_list = [{
   \ 'path': '~/wiki/',

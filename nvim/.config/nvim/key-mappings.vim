@@ -16,7 +16,11 @@ nmap <space>dh <Plug>VimspectorStepOut
 nmap <space>di <Plug>VimspectorBalloonEval
 xmap <space>di <Plug>VimspectorBalloonEval
 
-nnoremap <silent> <space>g :Git<cr>
+nnoremap <silent> <space>gg :Git<cr>
+nnoremap <silent> <space>gb :<C-u>CocList branches<cr>
+nnoremap <silent> <space>gc :<C-u>CocList commits<cr>
+nnoremap <silent> <space>gs :<C-u>CocList gstatus<cr>
+
 " Use tab to toggle inline diff
 autocmd FileType fugitive nmap <buffer> <tab> =
 
