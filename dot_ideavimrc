@@ -1,0 +1,12 @@
+# https://github.com/JetBrains/ideavim/blob/master/doc/emulated-plugins.md
+
+set ideajoin
+set surround
+set multiple-cursors
+set commentary
+
+set visualbell
+set noerrorbells
+
+" Make jj do esc
+imap jj <Esc>
