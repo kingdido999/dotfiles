@@ -1,0 +1,35 @@
+[push]
+    default = simple
+    autoSetupRemote = true
+
+[credential]
+    helper = cache --timeout=86400
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[delta]
+    syntax-theme = Solarized (light)
+    navigate = true
+    line-numbers = true
+    side-by-side = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[user]
+	email = info@desmonding.me
+	name = Pengcheng Ding
+
+[includeIf "gitdir:~/repo/"]
+    path = ~/.gitconfig-work
+[trace2]
+	maxFiles = 800
+	normaltarget = /Users/pengcheng.ding/.gimlet-home/trace2
+	configParams = remote.*.url
+	normalBrief = true
+[gimlet]
+	auto-enable-trace2 = true
