@@ -35,9 +35,15 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    # Dotfile manager
     pkgs.chezmoi
+
+    # Editor
     pkgs.helix
+
+    # Shell
     pkgs.fish
+    pkgs.fishPlugins.hydro
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
