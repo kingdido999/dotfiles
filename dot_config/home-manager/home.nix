@@ -44,6 +44,9 @@
     # Shell
     pkgs.fish
     pkgs.fishPlugins.hydro
+
+    # NodeJS
+    pkgs.nodejs_22
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
