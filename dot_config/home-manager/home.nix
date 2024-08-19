@@ -91,7 +91,7 @@
 
   programs.alacritty = {
     settings = {
-      shell.program = "/Users/pengchengding/.nix-profile/bin/fish"
+      general.shell = "/Users/pengchengding/.nix-profile/bin/fish"
     }
   }
 }
