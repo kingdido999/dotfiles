@@ -84,14 +84,9 @@
   #
   home.sessionVariables = {
     EDITOR = "hx";
+    SHELL = "/Users/pengchengding/.nix-profile/bin/fish";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.alacritty = {
-    settings = {
-      shell.program = "/Users/pengchengding/.nix-profile/bin/fish"
-    }
-  }
 }
