@@ -46,9 +46,6 @@
 
     # NodeJS
     pkgs.nodejs_22
-
-    # Terminal Emulator
-    pkgs.alacritty
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -83,7 +80,6 @@
   #
   home.sessionVariables = {
     EDITOR = "hx";
-    SHELL = "/Users/pengcheng.ding/.nix-profile/bin/fish";
   };
 
   # Let Home Manager install and manage itself.
