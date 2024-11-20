@@ -21,7 +21,7 @@
     diffFilter = delta --color-only
 
 [user]
-	email = info@desmonding.me
+	email = info@pcding.com
 	name = Pengcheng Ding
 
 [includeIf "gitdir:~/repo/"]
