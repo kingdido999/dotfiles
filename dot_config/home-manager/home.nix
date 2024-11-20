@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "pengchengding";
-  home.homeDirectory = "/Users/pengchengding";
+  home.username = "pengcheng.ding";
+  home.homeDirectory = "/Users/pengcheng.ding";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -84,7 +84,7 @@
   #
   home.sessionVariables = {
     EDITOR = "hx";
-    SHELL = "/Users/pengchengding/.nix-profile/bin/fish";
+    SHELL = "/Users/pengcheng.ding/.nix-profile/bin/fish";
   };
 
   # Let Home Manager install and manage itself.
