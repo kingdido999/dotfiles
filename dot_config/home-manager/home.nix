@@ -43,7 +43,6 @@
 
     # Shell
     pkgs.fish
-    pkgs.fishPlugins.hydro
 
     # NodeJS
     pkgs.nodejs_22
@@ -90,5 +89,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    plugins = [
+      { name = "hydro"; src = pkgs.fishPlugins.hydro.src; }
+    ];
+  };
 }
