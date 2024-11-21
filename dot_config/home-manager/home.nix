@@ -44,7 +44,10 @@
     # Shell
     pkgs.fish
 
-    # NodeJS
+    # Fonts
+    pkgs.fira-code
+
+    # Dev 
     pkgs.nodejs_22
   ];
 
