@@ -91,6 +91,4 @@
       { name = "hydro"; src = pkgs.fishPlugins.hydro.src; }
     ];
   };
-
-  users.defaultUserShell = pkgs.fish;
 }
