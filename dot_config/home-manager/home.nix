@@ -95,4 +95,26 @@
     ];
   };
 
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "solarized_light";
+
+      editor = {
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+      
+        file-picker = {
+          hidden = false;
+        };
+      };
+
+      keys.insert = {
+        j = { j = "normal_mode" };
+      };     
+    }
+  }
 }
