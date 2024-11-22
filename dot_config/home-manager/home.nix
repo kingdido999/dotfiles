@@ -115,6 +115,6 @@
       keys.insert = {
         j = { j = "normal_mode"; };
       };     
-    }
-  }
+    };
+  };
 }
