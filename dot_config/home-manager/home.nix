@@ -94,4 +94,14 @@
       { name = "hydro"; src = pkgs.fishPlugins.hydro.src; }
     ];
   };
+
+  programs.zsh = {
+    enable = true;
+    shellInit = ''
+      if [ "$SHELL" != "$(which fish)" ]; then
+        exec fish
+      fi
+    '';
+  };
+  
 }
