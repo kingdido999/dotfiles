@@ -95,13 +95,4 @@
     ];
   };
 
-  programs.zsh = {
-    enable = true;
-    shellInit = ''
-      if [ "$SHELL" != "$(which fish)" ]; then
-        exec fish
-      fi
-    '';
-  };
-  
 }
