@@ -1,0 +1,148 @@
+# Alabaster Theme for Helix
+# Based on https://github.com/tonsky/sublime-scheme-alabaster
+# Philosophy: Minimal highlighting with only 4 syntax classes
+
+# Alabaster only highlights:
+# 1. Strings
+# 2. Constants (numbers, symbols, keywords, booleans)
+# 3. Comments (prominent, not dimmed)
+# 4. Global definitions (functions, types, classes)
+
+# Strings - green
+"string" = "#448C27"
+"string.regexp" = "#448C27"
+"string.special" = "#448C27"
+
+# Constants - magenta/purple
+"constant" = "#7A3E9D"
+"constant.numeric" = "#7A3E9D"
+"constant.builtin" = "#7A3E9D"
+"constant.builtin.boolean" = "#7A3E9D"
+"constant.character" = "#7A3E9D"
+"constant.character.escape" = "#777777"
+
+# Comments - red (NOT dimmed, prominent!)
+"comment" = "#AA3731"
+"comment.line" = "#AA3731"
+"comment.block" = "#AA3731"
+"comment.block.documentation" = "#AA3731"
+
+# Global definitions - blue
+"function" = "#325CC0"
+"function.method" = "#325CC0"
+"function.macro" = "#325CC0"
+"function.builtin" = "#325CC0"
+"type" = "#325CC0"
+"type.builtin" = "#325CC0"
+"constructor" = "#325CC0"
+"tag" = "#325CC0"
+
+# Everything else uses default text color (no highlighting)
+# This includes: keywords, operators, variables, punctuation, etc.
+"keyword" = "foreground"
+"keyword.control" = "foreground"
+"keyword.operator" = "foreground"
+"keyword.function" = "foreground"
+"keyword.storage" = "foreground"
+"operator" = "foreground"
+"variable" = "foreground"
+"variable.parameter" = "foreground"
+"variable.builtin" = "foreground"
+"namespace" = "foreground"
+"punctuation" = "foreground"
+"punctuation.delimiter" = "foreground"
+"punctuation.bracket" = "foreground"
+"attribute" = "foreground"
+"label" = "foreground"
+"special" = "foreground"
+
+# Markup (for Markdown, etc.)
+"markup.heading" = "#325CC0"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "#325CC0", modifiers = ["underlined"] }
+"markup.link.text" = "#448C27"
+"markup.quote" = "#AA3731"
+"markup.raw" = "#7A3E9D"
+"markup.list" = "foreground"
+
+# Diff
+"diff.plus" = "#448C27"
+"diff.minus" = "#AA3731"
+"diff.delta" = "#325CC0"
+
+# UI Elements
+"ui.background" = { fg = "foreground", bg = "background" }
+"ui.background.separator" = { fg = "border" }
+"ui.cursor" = { fg = "background", bg = "foreground" }
+"ui.cursor.primary" = { fg = "background", bg = "cursor" }
+"ui.cursor.match" = { bg = "selection_secondary" }
+"ui.cursor.insert" = { fg = "background", bg = "cursor" }
+"ui.cursor.select" = { fg = "background", bg = "cursor" }
+"ui.cursorline.primary" = { bg = "cursorline" }
+
+"ui.linenr" = { fg = "linenr" }
+"ui.linenr.selected" = { fg = "foreground" }
+
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+
+"ui.statusline" = { fg = "foreground", bg = "statusline" }
+"ui.statusline.inactive" = { fg = "comment_fg", bg = "statusline" }
+"ui.statusline.normal" = { fg = "background", bg = "#325CC0" }
+"ui.statusline.insert" = { fg = "background", bg = "#448C27" }
+"ui.statusline.select" = { fg = "background", bg = "#7A3E9D" }
+
+"ui.text" = { fg = "foreground" }
+"ui.text.focus" = { fg = "foreground", modifiers = ["bold"] }
+
+"ui.menu" = { fg = "foreground", bg = "menu" }
+"ui.menu.selected" = { bg = "selection" }
+"ui.menu.scroll" = { fg = "foreground", bg = "menu" }
+
+"ui.popup" = { fg = "foreground", bg = "menu" }
+"ui.popup.info" = { fg = "foreground", bg = "menu" }
+"ui.help" = { fg = "foreground", bg = "menu" }
+"ui.window" = { fg = "border" }
+
+"ui.virtual" = { fg = "virtual" }
+"ui.virtual.ruler" = { bg = "cursorline" }
+"ui.virtual.whitespace" = { fg = "virtual" }
+"ui.virtual.indent-guide" = { fg = "virtual" }
+"ui.virtual.inlay-hint" = { fg = "comment_fg" }
+
+# Diagnostics
+"diagnostic.error" = { underline = { color = "#AA3731", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "#FFBC5D", style = "curl" } }
+"diagnostic.info" = { underline = { color = "#325CC0", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "#448C27", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+"error" = "#AA3731"
+"warning" = "#FFBC5D"
+"info" = "#325CC0"
+"hint" = "#448C27"
+
+[palette]
+# Light background similar to original Alabaster
+background = "#F7F7F7"
+foreground = "#000000"
+
+# Syntax colors (from original Alabaster)
+string_fg = "#448C27"      # Green for strings
+constant_fg = "#7A3E9D"    # Magenta for constants
+comment_fg = "#AA3731"     # Red for comments (prominent!)
+definition_fg = "#325CC0"  # Blue for definitions
+
+# UI colors
+cursor = "#007ACC"
+cursorline = "#F0F0F0"
+selection = "#BFDBFE"
+selection_secondary = "#E0E0E0"
+linenr = "#AAAAAA"
+border = "#CCCCCC"
+statusline = "#E5E5E5"
+menu = "#F0F0F0"
+virtual = "#777777"

@@ -1,0 +1,6 @@
+[user]
+    name = Pengcheng Ding
+    email = info@pcding.com
+
+[includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig-work

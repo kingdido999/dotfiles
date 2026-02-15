@@ -1,0 +1,7 @@
+brew "helix"
+brew "fish"
+brew "fzf"
+brew "fd"
+brew "bat"
+brew "tmux"
+brew "stow"
