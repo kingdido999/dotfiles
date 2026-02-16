@@ -11,7 +11,7 @@ Dotfiles managed with GNU Stow. Each top-level directory is a stow package whose
 ```bash
 # Deploy/update symlinks (run from ~/dotfiles)
 stow <package>          # Symlink a single package (e.g., stow helix)
-stow helix fish git tmux  # Stow all packages
+stow helix fish git tmux claude  # Stow all packages
 stow -D <package>       # Remove symlinks for a package
 stow -R <package>       # Restow (remove then re-create)
 
@@ -36,6 +36,7 @@ fish -c "fisher update"  # Install/update plugins from fish_plugins
 | `fish/` | `~/.config/fish/` | Shell config, aliases, PATH, plugin list |
 | `git/` | `~/.gitconfig` | User identity, conditional work config via `includeIf` |
 | `tmux/` | `~/.tmux.conf` | Prefix key, vi mode, TPM plugins |
+| `claude/` | `~/.claude/` | Claude Code settings (base + OS-specific hooks merged at install) |
 
 ### Adding a New Stow Package
 
