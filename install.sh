@@ -13,10 +13,17 @@ fi
 echo "Installing packages from Brewfile..."
 brew bundle install --file="$(dirname "$0")/Brewfile"
 
+# Merge Claude settings for current OS
+cd "$(dirname "$0")"
+CLAUDE_OS="$(uname | tr '[:upper:]' '[:lower:]')"
+jq -s '.[0] * .[1]' \
+  "claude/.claude/settings.base.json" \
+  "claude/.claude/settings.${CLAUDE_OS}.json" \
+  > "claude/.claude/settings.json"
+
 # Stow all packages
 echo "Stowing dotfiles..."
-cd "$(dirname "$0")"
-stow helix fish git tmux
+stow helix fish git tmux claude
 
 # Install Fisher and plugins
 if ! fish -c "type -q fisher" 2>/dev/null; then
