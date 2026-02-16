@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "Write",
+      "Bash(*)",
+      "Grep",
+      "Glob",
+      "Read",
+      "LS",
+      "WebSearch",
+      "WebFetch"
+    ],
+    "defaultMode": "default"
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true,
+    "serena@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "obsidian@obsidian-skills": true
+  },
+  "effortLevel": "medium"
+}
