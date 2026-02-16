@@ -8,6 +8,11 @@ if test (uname) = "Darwin"
     if test -d /opt/homebrew/bin
         set -gx PATH /opt/homebrew/bin $PATH
     end
+else if test (uname) = "Linux"
+    # Linuxbrew
+    if test -x /home/linuxbrew/.linuxbrew/bin/brew
+        eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    end
 end
 set -gx PATH $HOME/bin $PATH
 set -gx PATH $HOME/.local/bin $PATH
