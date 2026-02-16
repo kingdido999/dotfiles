@@ -1,3 +1,8 @@
+# Start in home directory if dropped into /
+if status is-login; and test "$PWD" = /
+    cd ~
+end
+
 # Environment variables
 set -gx EDITOR hx
 set -gx SHELL (which fish)

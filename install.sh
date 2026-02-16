@@ -28,8 +28,9 @@ jq -s '.[0] * .[1]' \
   "claude/.claude/settings.${CLAUDE_OS}.json" \
   > "claude/.claude/settings.json"
 
-# Stow all packages
+# Stow all packages (remove generated claude settings to avoid stow conflict on re-runs)
 echo "Stowing dotfiles..."
+rm -f ~/.claude/settings.json
 stow helix fish git tmux claude
 
 # Install Fisher and plugins
