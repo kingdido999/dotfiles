@@ -1,6 +1,7 @@
 brew "helix"
 brew "fish"
 brew "fzf"
+brew "jq"
 brew "mosh"
 brew "tmux"
 brew "stow"
