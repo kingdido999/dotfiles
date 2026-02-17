@@ -20,6 +20,12 @@ fi
 echo "Installing packages from Brewfile..."
 brew bundle install --file="$(dirname "$0")/Brewfile"
 
+# Install Claude Code
+if ! command -v claude &>/dev/null; then
+    echo "Installing Claude Code..."
+    curl -fsSL https://claude.ai/install.sh | bash
+fi
+
 # Merge Claude settings for current OS
 cd "$(dirname "$0")"
 CLAUDE_OS="$(uname | tr '[:upper:]' '[:lower:]')"
