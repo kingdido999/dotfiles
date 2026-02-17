@@ -16,9 +16,13 @@ elif [ -x /opt/homebrew/bin/brew ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Install packages
-echo "Installing packages from Brewfile..."
-brew bundle install --file="$(dirname "$0")/Brewfile"
+# Install packages (brew bundle is idempotent; --no-lock avoids writing Brewfile.lock)
+if ! brew bundle check --file="$(dirname "$0")/Brewfile" &>/dev/null; then
+    echo "Installing packages from Brewfile..."
+    brew bundle install --file="$(dirname "$0")/Brewfile"
+else
+    echo "Brew packages already installed."
+fi
 
 # Install Claude Code
 if ! command -v claude &>/dev/null; then
@@ -34,10 +38,10 @@ jq -s '.[0] * .[1]' \
   "claude/.claude/settings.${CLAUDE_OS}.json" \
   > "claude/.claude/settings.json"
 
-# Stow all packages (remove generated claude settings to avoid stow conflict on re-runs)
+# Stow all packages (restow to pick up any changes)
 echo "Stowing dotfiles..."
 rm -f ~/.claude/settings.json
-stow helix fish git tmux claude
+stow -R helix fish git tmux claude
 
 # Install Fisher and plugins
 if ! fish -c "type -q fisher" 2>/dev/null; then
@@ -45,7 +49,7 @@ if ! fish -c "type -q fisher" 2>/dev/null; then
     fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
 fi
 
-echo "Installing Fish plugins..."
+# Sync Fish plugins (fisher update is idempotent)
 fish -c "fisher update"
 
 # Add Fish to allowed shells and set as default
