@@ -5,7 +5,7 @@ end
 
 # Environment variables
 set -gx EDITOR hx
-set -gx SHELL (which fish)
+set -gx SHELL (which fish 2>/dev/null)
 
 # PATH setup
 if test (uname) = "Darwin"
@@ -16,11 +16,17 @@ if test (uname) = "Darwin"
 else if test (uname) = "Linux"
     # Linuxbrew
     if test -x /home/linuxbrew/.linuxbrew/bin/brew
-        eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+        set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
+        set -gx HOMEBREW_CELLAR $HOMEBREW_PREFIX/Cellar
+        set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
+        set -gx PATH $HOMEBREW_PREFIX/bin $HOMEBREW_PREFIX/sbin $PATH
     end
 end
 set -gx PATH $HOME/bin $PATH
 set -gx PATH $HOME/.local/bin $PATH
+
+# fzf integration
+fzf --fish | source
 
 # Aliases - Git
 alias ga "git add ."
