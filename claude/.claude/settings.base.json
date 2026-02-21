@@ -11,7 +11,7 @@
       "WebSearch",
       "WebFetch"
     ],
-    "defaultMode": "default"
+    "defaultMode": "bypassPermissions"
   },
   "enabledPlugins": {
     "swift-lsp@claude-plugins-official": true,
@@ -25,5 +25,5 @@
     "context7@claude-plugins-official": true,
     "obsidian@obsidian-skills": true
   },
-  "effortLevel": "medium"
+  "effortLevel": "high"
 }
