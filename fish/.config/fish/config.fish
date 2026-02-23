@@ -38,3 +38,8 @@ alias gpl "git pull"
 
 # Aliases - Dotfiles
 alias dot "cd ~/dotfiles && hx ."
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/pengchengding/.lmstudio/bin
+# End of LM Studio CLI section
+
