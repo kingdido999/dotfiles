@@ -21,5 +21,9 @@
     "context7@claude-plugins-official": true,
     "obsidian@obsidian-skills": true
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline-command.sh"
+  }
 }
