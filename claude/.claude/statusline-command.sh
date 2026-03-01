@@ -61,7 +61,7 @@ format_tokens() {
 if [ -n "$input_tokens" ] && [ -n "$output_tokens" ]; then
     in_fmt=$(format_tokens "$input_tokens")
     out_fmt=$(format_tokens "$output_tokens")
-    printf ' \033[33m%s\xe2\x86\x91 %s\xe2\x86\x93\033[0m' "$in_fmt" "$out_fmt"
+    printf ' \033[33m%s↑ %s↓\033[0m' "$in_fmt" "$out_fmt"
 fi
 
 if [ -n "$cost" ] && [ "$cost" != "0" ]; then
